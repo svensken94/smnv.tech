@@ -1,0 +1,8 @@
+@mixin apply {
+  :root {
+    --ui-dock-opacity: 0.4;
+    --ui-dock: 230, 230, 230;
+
+    --ui-shadow: rgba(0,0,0,0.05);
+  }
+}

@@ -1,18 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'projects/ui/src/lib/theming/constants';
+@use 'projects/ui/src/lib/theming/themes/light';
+@use 'projects/ui/src/lib/theming/themes/dark';
+
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&display=swap');
+
+@include constants.apply;
+
+$debug: 0;
 
 html,
 body {
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-	font-family: 'Inter Tight', sans-serif;
+	font-family: var(--ui-font);
 	margin: 0;
+	font-size: 16px;
 }
-
-$debug: 1px;
 
 * {
 	box-sizing: border-box;
-	outline: $debug solid rgba(255, 0, 0, 0.1);
+	letter-spacing: 0.05rem;
+	outline: #{$debug}px solid rgba(255, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+	// @include dark.apply;
+	@include light.apply;
+}
+@media (prefers-color-scheme: light) {
+	@include light.apply;
 }

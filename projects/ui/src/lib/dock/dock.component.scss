@@ -1,7 +1,19 @@
+@use 'projects/ui/src/lib/theming/constants' as *;
+
 :host {
 	display: block;
 	position: absolute;
 	bottom: 1rem;
 	left: 50%;
 	translate: -50% 0%;
+	background-color: rgba(var(--ui-dock), var(--ui-dock-opacity));
+	border-radius: var(--ui-unit-7);
+	backdrop-filter: blur(var(--ui-unit-4));
+	box-shadow: shadow(2, 1);
+
+	.icon-group {
+		display: flex;
+		padding: var(--ui-unit-3);
+		gap: var(--ui-unit-2);
+	}
 }

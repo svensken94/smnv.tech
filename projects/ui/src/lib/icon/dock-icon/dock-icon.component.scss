@@ -1,3 +1,8 @@
 :host {
   display: block;
+  width: 4rem;
+  height: 4rem;
+  background-color: blue;
+  mask-size: cover;
+  mask-image: url('/assets/app-icon-mask.svg');
 }

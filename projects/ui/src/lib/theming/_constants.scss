@@ -1,0 +1,13 @@
+@mixin apply {
+  :root {
+    --ui-font: 'Inter Tight', sans-serif;
+
+    @for $i from 1 through 16 {
+      --ui-unit-#{$i}: #{calc($i*4 / 16)}rem;
+    }
+  }
+}
+
+@function shadow ($blur: 2, $spread: 0) {
+  @return 0rem var(--ui-unit-#{$blur - $spread}, 0.25rem) var(--ui-unit-#{$blur}) var(--ui-unit-#{$spread}) var(--ui-shadow);
+}
