@@ -1,3 +1,3 @@
 <div class="icon-group">
-	<ng-content></ng-content>
+	<ui-dock-icon *ngFor="let manifest of apps" [manifest]="manifest" (click)="start(manifest)"></ui-dock-icon>
 </div>
