@@ -1,4 +1,5 @@
 import { Component, ViewChild, inject } from '@angular/core'
+import { CalendarComponent } from '@apps/calendar'
 import { PortalDirective } from 'ui/directives/portal/portal.directive'
 import { DockComponent } from 'ui/dock'
 import { ApplicationManifest } from 'ui/system'
@@ -17,7 +18,7 @@ export class OsComponent {
 	windowService = inject(WindowService)
 
 	spawn(manifest: ApplicationManifest) {
-		this.windowService.spawn(this.portal.viewContainerRef, manifest)
+		const window = this.windowService.spawn(this.portal.viewContainerRef, manifest)
 	}
 }
 export default OsComponent

@@ -1,5 +1,6 @@
-import { Injectable, ViewContainerRef } from '@angular/core'
+import { Component, Injectable, ViewContainerRef } from '@angular/core'
 import { ApplicationManifest } from 'ui/system'
+import { WindowComponent } from './window.component'
 
 @Injectable({
 	providedIn: 'root',
@@ -7,8 +8,15 @@ import { ApplicationManifest } from 'ui/system'
 export class WindowService {
 	constructor() {}
 
-	spawn(viewContainerRef: ViewContainerRef, manifest: ApplicationManifest) {
-		const componentRef = viewContainerRef.createComponent(manifest.context)
-		return componentRef.instance
+	spawn<T extends ApplicationManifest['context']>(
+		viewContainerRef: ViewContainerRef,
+		manifest: ApplicationManifest
+	): WindowComponent<T> {
+		const componentRef = viewContainerRef.createComponent<WindowComponent<T>>(WindowComponent)
+		const window = componentRef.instance
+
+		window.manifest = manifest
+
+		return window
 	}
 }
