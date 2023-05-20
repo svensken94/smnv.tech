@@ -1,0 +1,11 @@
+{
+	"version": 2,
+	"public": true,
+	"name": "smnv",
+	"rewrites": [{ "source": "/(.*)", "destination": "/api" }],
+	"functions": {
+		"api/index.js": {
+			"includeFiles": "dist/smnv/browser/**"
+		}
+	}
+}
